@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>la liga</title>
+    <link rel="stylesheet" href="style.css" />
+    <!--icons font awsome-->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+      rel="stylesheet"
+    />
+    <!--------link css only---->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
+    />
+    <!-------link bootstrap----------->
+    <link rel="stylesheet" href=>
+
+    <script
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+    ></script>
+  </head>
+  <body>
+    <section id="home" class="home-box">
+      <div class="container pt-5">
+        <button
+          type="button"
+          class="btn btn-primary mb-4"
+          data-bs-toggle="modal"
+          data-bs-target="#exampleModal"
+          data-bs-whatever="@fat"
+        >
+          Ajouter une Equipe
+        </button>
+        <div
+          class="modal fade"
+          id="exampleModal"
+          tabindex="-1"
+          aria-labelledby="exampleModalLabel"
+          aria-hidden="true">
+          <div class="modal-dialog modal-md">
+            <div class="modal-content bg-dark">
+              <div class="modal-header">
+                <div class="text-white text-center">
+                  <h1 class="modal-title  fs-5" id="exampleModalLabel">
+                    Ajouter Une Equipe
+                  </h1>
+                </div>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <!-- <img src="images/stade1.jpg" class="img-fluit w-100" alt="" /> -->
+                <form class="row pt-3 g-2" id="form">
+                  <div class="col-md-6 p-2">
+                    <select
+                      id="equipe"
+                      class="form-select"
+                      aria-label="Default select example"
+                    >
+                      <option selected>Equipe</option>
+                      <option>Barcelone</option>
+                      <option>Real madrid</option>
+                      <option>Villarreal</option>
+                      <option>Atletic bilbao</option>
+                      <option>Seville</option>
+                      <option>Valance</option>
+                      <option>Valadolid</option>
+                      <option>Betis</option>
+                      <option>Osasuna</option>
+                      <option>Mayorca</option>
+                    </select>
+                  </div>
+                  <div class="col-md-6 p-2">
+                    <input
+                      id="journee"
+                      type="text"
+                      class="form-control p-2"
+                      value=""
+                      required
+                      placeholder="journee"
+                    />
+                  </div>
+                  <div class="col-md-6 p-2">
+                    <input
+                      id="victoire"
+                      type="text"
+                      class="form-control border border-dark p-2"
+                      value=""
+                      required
+                      placeholder="victoire"
+                    />
+                  </div>
+                  <div class="col-md-6 p-2">
+                    <input
+                      id="nulle"
+                      type="text"
+                      class="form-control border border-dark p-2"
+                      value=""
+                      required
+                      placeholder="nulle"
+                    />
+                  </div>
+                  <div class="col-md-6 p-2">
+                    <input
+                      id="defaite"
+                      type="text"
+                      class="form-control border border-dark p-2"
+                      value=""
+                      required
+                      placeholder="defaite"
+                    />
+                  </div>
+                  <div class="col-md-6 p-2">
+                    <input
+                      id="but-marquer"
+                      type="text"
+                      class="form-control border border-dark p-2"
+                      value=""
+                      required
+                      placeholder="but-marquer"
+                    />
+                  </div>
+                  <div class="col-md-6 p-2">
+                    <input
+                      id="but-encaisser"
+                      type="text"
+                      class="form-control border border-dark p-2"
+                      value=""
+                      required
+                      placeholder="but-encaisse"
+                    />
+                  </div>
+                  <div class="col-md-6 p-2">
+                    <input
+                      id="difference"
+                      type="text"
+                      class="form-control border border-dark p-2"
+                      value =""
+                      required
+                      placeholder ="defferamce"
+                    />
+                  </div>
+                  <div class="col-md-6 p-2">
+                    <input
+                      id="point"
+                      type="text"
+                      class="form-control border border-dark p-2"
+                      value=""
+                      required
+                      placeholder="point"
+                    />
+                  </div>
+                </form>
+              </div>
+              <div class="modal-footer">
+                <button id="btn" type="button" class="btn btn-primary">
+                  Enregister
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!--------table du formulaire-->
+        <table id="table" class="table table-bordered text-center text-white">
+          <thead id="thead" class="bg-dark">
+            <tr>
+              <th scope="col">Equipes</th>
+              <th scope="col">J</th>
+              <th scope="col">V</th>
+              <th scope="col">N</th>
+              <th scope="col">D</th>
+              <th scope="col">BM</th>
+              <th scope="col">BE</th>
+              <th scope="col">+/-</th>
+              <th scope="col">Pts</th>
+            </tr>
+          </thead>
+          <tbody id="tbody" class="bg-info"></tbody>
+        </table>
+      </div>
+    </section>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+      integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"
+      integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V"
+      crossorigin="anonymous"></script>
+
+
+      <!-------section script----------->
+    <script type="module">
+      // Import the functions you need from the SDKs you need
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-app.js";
+      import { getFirestore, setDoc, addDoc, doc, collection, getDocs } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-firestore.js";
+      // import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.17.1/firebase-analytics.js";
+      // TODO: Add SDKs for Firebase products that you want to use
+      // https://firebase.google.com/docs/web/setup#available-libraries
+
+      // Your web app's Firebase configuration
+      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+      const firebaseConfig = {
+
+        apiKey: "AIzaSyB4qRZej4pl6a3Yqr3MTaZ6DEd7D5kB5pM",
+
+        authDomain: "classement-liga-89c55.firebaseapp.com",
+
+        projectId: "classement-liga-89c55",
+
+        storageBucket: "classement-liga-89c55.appspot.com",
+
+        messagingSenderId: "761200384180",
+
+        appId: "1:761200384180:web:94e13ac152ecb9028f5fe1"
+
+      };
+
+
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+      // const analytics = getAnalytics(app);
+      // Initialize Cloud Firestore and get a reference to the service
+      const db = getFirestore(app);
+
+      btn.addEventListener('click', (e) => {
+          let equipe = document.getElementById('equipe').value;
+          // let position = document.getElementById('position').value;
+          let journee = document.getElementById('journee').value;
+          let victoire = document.getElementById('victoire').value;
+          let nulle = document.getElementById('nulle').value;
+          let defaite = document.getElementById('defaite').value;
+          let butMarquer = document.getElementById('but-marquer').value;
+          let butEncaisser =document.getElementById('but-encaisser').value;
+          let difference = document.getElementById('difference').value;
+          let point = document.getElementById('point').value
+
+          addDoc(collection(db, "liga"), {
+              equipe: equipe,
+              journee: journee,
+              victoire: victoire,
+              nulle: nulle,
+              defaite: defaite,
+              butMarquer: butMarquer,
+              butEncaisser:butEncaisser,
+              difference: difference,
+              point: point,
+          });
+          alert('Equipe ajouter');
+
+
+      let tbody = document.getElementById('tbody');
+        tbody.innerHTML += `
+
+                        <td>${equipe}</td>
+                        <td>${journee}</td>
+                        <td>${victoire}</td>
+                        <td>${nulle}</td>
+                        <td>${defaite}</td>
+                        <td>${butMarquer}</td>
+                        <td>${butEncaisser}</td>
+                        <td>${difference}</td>
+                        <td>${point}</td>
+    `
+    });
+    document.querySelector('#form').addEventListener('submit', (e) => {
+        e.preventDefault();
+
+
+    })
+
+    const tabl = [];
+
+    const querySnapshot = await getDocs(collection(db, "liga"));
+    querySnapshot.forEach((doc) => {
+        tabl.push({ ...doc.data() });
+        // console.log(doc.id, " => ", doc.data());
+    });
+    let table = document.getElementById('tbody');
+
+    tabl.map(element => (
+        table.innerHTML += `
+                <tr>
+                        <td>${element.equipe}</td>
+                        <td>${element.journee}</td>
+                        <td>${element.victoire}</td>
+                        <td>${element.nulle}</td>
+                        <td>${element.defaite}</td>
+                        <td>${element.butMarquer}</td>
+                        <td>${element.butEncaisser}</td>
+                        <td>${element.difference}</td>
+                        <td>${element.point}</td>
+                </tr>
+            `
+    ))
+  </script>
+  </body>
+</html>
